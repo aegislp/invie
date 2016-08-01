@@ -2,26 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+
   <title>Invie-Precios</title>
   <link rel="stylesheet" href="css/invie.css" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header class="header">
+    <button type="button" class="toggle icon-menu" id="menu-toggle" name="button"></button>
     <div class=" container">
       <figure class="logo">
         <img src="images/invie.png" alt="Invie logotipo" width="186" height="60" >
       </figure>
-      <nav class="menu">
+      <nav class="menu" id="menu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#guitarras">Guitarras</a></li>
+          <li><a class="local_links" href="#guitarras">Guitarras</a></li>
           <li><a href="precios.html">Precios</a></li>
         </ul>
       </nav>
     </div>
-
   </header>
+
 
   <section class="precios">
     <div class="container">
@@ -92,5 +95,32 @@
       </form>
     </div>
   </footer>
+  <script type="text/javascript">
+    (function(){
+
+
+      function toggleMenu(){
+        var $btnToggle = document.getElementById('menu-toggle');
+        var $menu      = document.getElementById('menu');
+        $menu.classList.toggle('active');
+        $btnToggle.classList.toggle('icon-cancel');
+      }
+
+
+      var $btnToggle = document.getElementById('menu-toggle');
+      var $menu      = document.getElementById('menu');
+      var $links      = document.getElementsByClassName('local_links')
+
+      $btnToggle.addEventListener('click',toggleMenu);
+
+      $links[0].addEventListener('click',function(event){
+        event.preventDefault();
+        toggleMenu();
+        document.location = event.currentTarget.getAttribute('href')
+
+      })
+
+    })()
+  </script>
 </body>
 </html>

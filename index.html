@@ -37,7 +37,7 @@
   <section id="guitarras" class="guitarras container">
     <h2>Nuestras Guitarras</h2>
     <article class="guitarra right">
-      <img src="images/invie-acustica.png" alt="Guitarra Invie Acustica" width="350"/>
+      <img class="b-lazy" data-src="images/invie-acustica.png" alt="Guitarra Invie Acustica" width="350"/>
       <div class="contenedor">
         <h4>Invie Acustica</h4>
         <ol>
@@ -48,7 +48,7 @@
       </div>
     </article>
     <article class="guitarra left">
-      <img src="images/invie-classic.png" alt="Guitarra Invie Classsic" width="350"/>
+      <img class="b-lazy" data-src="images/invie-classic.png" alt="Guitarra Invie Classsic" width="350"/>
       <div class="contenedor">
         <h4>Invie Classic</h4>
         <ol>
@@ -97,10 +97,14 @@
       </form>
     </div>
   </footer>
+    <script type="text/javascript" src="js/blazy.min.js"> </script>
   <script type="text/javascript">
     (function(){
 
+      var bLazy = new Blazy({
+        // options
 
+      });
       function toggleMenu(){
         var $btnToggle = document.getElementById('menu-toggle');
         var $menu      = document.getElementById('menu');
@@ -123,5 +127,6 @@
 
     })()
   </script>
+
 </body>
 </html>

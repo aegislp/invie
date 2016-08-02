@@ -430,7 +430,7 @@ top: -70px;
   .footer .formulario .col2 textarea{
     width: 100%;
   }
-  
+
   .contacto a {
     margin-left: 0;
   }
@@ -440,6 +440,9 @@ top: -70px;
   }
   .intereses input,.sexo input{
     zoom: 1.5;
+  }
+  .sexo label {
+    margin-right: 50px;
   }
   .guitarra.left img, .guitarra.right img{
     width: 100%;

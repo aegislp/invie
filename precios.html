@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-
-  <title>Invie-Precios</title>
+  <title>Invie</title>
   <link rel="stylesheet" href="css/invie.css" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta' rel='stylesheet' type='text/css'>
 </head>
@@ -13,7 +12,7 @@
     <button type="button" class="toggle icon-menu" id="menu-toggle" name="button"></button>
     <div class=" container">
       <figure class="logo">
-        <img src="images/invie.png" alt="Invie logotipo" width="186" height="60" >
+        <img src="images/invie.png" srcset="images/invie.png 1x, images/invie2x.png 2x" alt="Invie logotipo" width="186" height="60" >
       </figure>
       <nav class="menu" id="menu">
         <ul>
@@ -23,6 +22,7 @@
         </ul>
       </nav>
     </div>
+
   </header>
 
 
@@ -56,11 +56,10 @@
     </table>
   </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <div class="contacto">
-        <img src="images/invie-white.png" alt="">
+        <img class="b-lazy" data-src="images/invie-white.png | images/invie-white2x.png" alt="Invie ">
         <a href="tel:221653535"><strong>Telefono</strong><span>221653535</span></a>
         <a href="mailTo:contacto@invie.com"><strong>Email:</strong><span>contacto@invie.com</span></a>
       </div>
@@ -95,10 +94,16 @@
       </form>
     </div>
   </footer>
+    <script type="text/javascript" src="js/blazy.min.js"> </script>
+    <script type="text/javascript" src="js/hammer.min.js"> </script>
+
   <script type="text/javascript">
     (function(){
 
+      var bLazy = new Blazy({
+        // options
 
+      });
       function toggleMenu(){
         var $btnToggle = document.getElementById('menu-toggle');
         var $menu      = document.getElementById('menu');
@@ -108,7 +113,6 @@
 
 
       var $btnToggle = document.getElementById('menu-toggle');
-      var $menu      = document.getElementById('menu');
       var $links      = document.getElementsByClassName('local_links')
 
       $btnToggle.addEventListener('click',toggleMenu);
@@ -119,8 +123,22 @@
         document.location = event.currentTarget.getAttribute('href')
 
       })
+      var hammertime = new Hammer(document.body, {});
+      hammertime.on('swiperight', function(){
+        var $btnToggle = document.getElementById('menu-toggle');
+        var $menu      = document.getElementById('menu');
+        $menu.classList.add('active');
+        $btnToggle.classList.add('icon-cancel');
+      });
+      hammertime.on('swipeleft', function(){
+        var $btnToggle = document.getElementById('menu-toggle');
+        var $menu      = document.getElementById('menu');
+        $menu.classList.remove('active');
+        $btnToggle.classList.remove('icon-cancel');
+      });
 
     })()
   </script>
+
 </body>
 </html>
